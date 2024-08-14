@@ -10,7 +10,7 @@ public interface GroceryService {
 
 	boolean validateAndSave(GroceryEntity groceryEntity);
 
-	
+
 	default GroceryDTO validateAndFindByName(String name) {
 		return null;
 
@@ -20,20 +20,17 @@ public interface GroceryService {
 		return null;
 	}
 
-	default GroceryEntity findByNameAndBrand(String name, String brand){
-		return null;
-	}
 
 	default List<Object> getAllGrocery(){
 		return null;
-		
+
 	}
 	default boolean deleteGrocery(String name) {
-		
+
 		return false;
-		
+
 	}
 	boolean saveUsers(User user);
 	User findUserByUsernames(String username);
-		
+
 }

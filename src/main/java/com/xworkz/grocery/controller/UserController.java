@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpSession;
 
@@ -16,11 +15,11 @@ import com.xworkz.grocery.entity.User;
 public class UserController {
 
     @Autowired
-    private GroceryService userService;
+    private GroceryService groceryService;
 
     @RequestMapping("/login.do")
     public String login(@RequestParam String username, @RequestParam String password, Model model, HttpSession session) {
-        User user = userService.findUserByUsernames(username);
+        User user = groceryService.findUserByUsernames(username);
         if (user != null && user.getPassword().equals(password)) {
             session.setAttribute("username", username);
             return "LandingPage.jsp";
@@ -36,7 +35,7 @@ public class UserController {
         user.setUsername(username);
         user.setPassword(password);
         user.setEmail(email);
-        boolean isRegistered = userService.saveUsers(user);
+        boolean isRegistered = groceryService.saveUsers(user);
         if (isRegistered) {
             model.addAttribute("message", "Registration successful, please login");
             return "Login.jsp";
@@ -45,4 +44,5 @@ public class UserController {
             return "Register.jsp";
         }
     }
+
 }
