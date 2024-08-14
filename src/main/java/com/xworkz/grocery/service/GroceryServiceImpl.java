@@ -32,41 +32,6 @@ public class GroceryServiceImpl implements GroceryService {
 	public boolean validateAndSave(GroceryEntity groceryEntity) {
 		double s;
 		boolean valid = false;
-		if (groceryEntity.getName() != null) {
-			System.out.println("valid name");
-			valid = true;
-		} else {
-			System.out.println("not a valid name");
-			return valid;
-		}
-		if (groceryEntity.getPrice() != 0) {
-			System.out.println("price is valid");
-			valid = true;
-		} else {
-			System.out.println("price is null");
-			return valid;
-		}
-		if (groceryEntity.getBrand() != null) {
-			System.out.println("valid brand");
-			valid = true;
-		} else {
-			System.out.println("not a valid brand");
-			return valid;
-		}
-		if (groceryEntity.getQuantity() != 0) {
-			System.out.println("valid quantity");
-			valid = true;
-		} else {
-			System.out.println("not a valid quantity");
-			return valid;
-		}
-		if (groceryEntity.getType() != null) {
-			System.out.println(" valid type");
-			valid = true;
-		} else {
-			System.out.println("not a valid type");
-			return valid;
-		}
 
 		// Validate fields
 		if (groceryEntity.getName() != null && groceryEntity.getPrice() != 0 && groceryEntity.getBrand() != null
